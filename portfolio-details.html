@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Cready - Web Developer Profile</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    /* CSS khusus untuk project Pesona Surabaya */
+    .pesona-surabaya .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .pesona-surabaya .swiper-slide img {
+        width: 35%;
+        height: auto;
+        margin: 0;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+          <div class="row gy-4">
+              <div class="col-lg-8">
+                  <div class="portfolio-details-slider swiper">
+                      <div class="swiper-wrapper align-items-center" id="swiper-wrapper">
+                          <!-- Gambar-gambar akan dimuat secara dinamis di sini -->
+                      </div>
+                      <div class="swiper-pagination"></div>
+                  </div>
+              </div>
+  
+              <div class="col-lg-4">
+                  <div class="portfolio-info">
+                      <h3>Project Information</h3>
+                      <ul id="project-info-list"></ul>
+                  </div>
+                  <div class="portfolio-description">
+                      <h2>Project Detail</h2>
+                      <p id="project-description"></p>
+                      <ul id="project-details-list"></ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Project Data
+            const projectData = {
+                "timu-indonesia": {
+                    name: "Timu Indonesia",
+                    category: "Web App",
+                    year: "2024",
+                    url: "https://github.com/cready2000/Timu-Indonesia",
+                    description: "Company Profile Website of Timu Indonesia",
+                    details: [
+                        "There are 2 user views, namely visitor and admin.",
+                        "Using CodeIgniter 3 framework and MySQL as Relational Database Management System (RDBMS)."
+                    ],
+                    images: [
+                        "assets/img/portfolio/timu-1.png",
+                        "assets/img/portfolio/timu-2.png",
+                        "assets/img/portfolio/timu-3.png"
+                    ]
+                },
+                "gii-system-hris": {
+                    name: "GII System (HRIS)",
+                    category: "Web App",
+                    year: "2023",
+                    url: "https://giisystem.com/hris",
+                    description: "Human Resources Information System",
+                    details: [
+                        "System that helps a company manage and automate human resources processess.",
+                        "Using Laravel framework and MySQL as Relational Database Managemnt System (RDBMS)."
+                    ],
+                    images: [
+                        "assets/img/portfolio/gii-hris-1.png",
+                        "assets/img/portfolio/gii-hris-2.png",
+                        "assets/img/portfolio/gii-hris-3.png"
+                    ]
+                },
+                "gii-system-bib": {
+                    name: "GII System (BIB / Beta Version)",
+                    category: "Web App",
+                    year: "2023",
+                    url: "https://giisystem.com/bib",
+                    description: "Beta Version of GII System",
+                    details: [
+                        "Internal company web used for incoming and outgoing product transactions.",
+                        "Using Laravel framework and MySQL as Relational Database Managemnt System (RDBMS)."
+                    ],
+                    images: [
+                        "assets/img/portfolio/gii-bib-1.png",
+                        "assets/img/portfolio/gii-bib-2.png",
+                        "assets/img/portfolio/gii-bib-3.png"
+                    ]
+                },
+                "sikosku": {
+                    name: "Sistem Informasi Kosku (Si Kosku)",
+                    category: "Web App",
+                    year: "2022",
+                    url: "https://github.com/cready2000/Skripsi_Sistem-Informasi-Kosku",
+                    description: "Marketplace in the Region of Universitas Pembangunan Nasional “Veteran” Jawa Timur",
+                    details: [
+                        "There are 3 user views, namely tenant, boarding house owner, and admin.",
+                        "Using CodeIgniter 4 framework and MySQL as Relational Database Management System (RDBMS)."
+                    ],
+                    images: [
+                        "assets/img/portfolio/sikosku-1.jpg",
+                        "assets/img/portfolio/sikosku-2.jpg",
+                        "assets/img/portfolio/sikosku-3.jpg"
+                    ]
+                },
+                "pesona-surabaya": {
+                    name: "Pesona Surabaya",
+                    category: "Mobile App",
+                    year: "2021",
+                    url: "https://github.com/cready2000/FP_Pesona-Surabaya",
+                    description: "Mobile Programming Final Project",
+                    details: [
+                        "There are 4 menus in the application, including tourism, culinary, culture, and about the application.",
+                        "Using Kotlin programming language and local data storage (SQLite)."
+                    ],
+                    images: [
+                        "assets/img/portfolio/pesona-surabaya-1.jpg",
+                        "assets/img/portfolio/pesona-surabaya-2.jpg",
+                        "assets/img/portfolio/pesona-surabaya-3.jpg"
+                    ]
+                },
+                "accounting-administrator": {
+                    name: "Accounting Administrator",
+                    category: "Web App",
+                    year: "2021",
+                    url: "https://github.com/cready2000/PKL_Website-Admin-Akuntansi",
+                    description: "Internship at PT. Seventhsoft Komputindo",
+                    details: [
+                        "There are 3 menus that can be used, including import database, server data, and user data.",
+                        "Using CodeIgniter 4 framework and MySQL as Relational Database Management System (RDBMS)."
+                    ],
+                    images: [
+                        "assets/img/portfolio/accounting-administrator-1.jpg",
+                        "assets/img/portfolio/accounting-administrator-2.jpg",
+                        "assets/img/portfolio/accounting-administrator-3.jpg"
+                    ]
+                },
+                "sitomel": {
+                    name: "Sistem Informasi Toko Mebel (Sitomel)",
+                    category: "Web App",
+                    year: "2020",
+                    url: "https://github.com/cready2000/Sistem-Informasi-Toko-Mebel",
+                    description: "Web Programming Final Project",
+                    details: [
+                        "There are 2 user views, namely visitor and admin.",
+                        "Using PHP Native and MySQL as Relational Database Management System (RDBMS)."
+                    ],
+                    images: [
+                        "assets/img/portfolio/sitomel-1.png",
+                        "assets/img/portfolio/sitomel-2.png",
+                        "assets/img/portfolio/sitomel-3.jpg"
+                    ]
+                },
+                "health-store": {
+                    name: "Health Store",
+                    category: "Web App",
+                    year: "2020",
+                    url: "https://github.com/cready2000/Sistem-Informasi-Toko-Kesehatan",
+                    description: "Online Shop System for LSP",
+                    details: [
+                        "There are 2 user views, namely visitor and admin.",
+                        "Using PHP Native and MySQL as Relational Database Management System (RDBMS)."
+                    ],
+                    images: [
+                        "assets/img/portfolio/health-store-1.png",
+                        "assets/img/portfolio/health-store-2.png",
+                        "assets/img/portfolio/health-store-3.png"
+                    ]
+                }
+            };
+
+            // Ambil parameter query dari URL
+            const params = new URLSearchParams(window.location.search);
+            const project = params.get("project");
+
+            // Periksa dan ambil project data
+            if (project && projectData[project]) {
+                const info = projectData[project];
+
+                // Menambahkan kelas khusus untuk Pesona Surabaya
+                const portfolioSection = document.getElementById("portfolio-details");
+                if (project === "pesona-surabaya") {
+                    portfolioSection.classList.add("pesona-surabaya");
+                }
+
+                // Tampilkan informasi project
+                document.getElementById("project-info-list").innerHTML = `
+                    <li><strong>Name</strong>: ${info.name}</li>
+                    <li><strong>Category</strong>: ${info.category}</li>
+                    <li><strong>Year</strong>: ${info.year}</li>
+                    <li><strong>URL</strong>: <a href="${info.url}" target="_blank">${info.url}</a></li> <!-- URL yang bisa diklik -->
+                `;
+
+                // Tampilkan deskripsi project
+                document.getElementById("project-description").textContent = info.description;
+
+                // Tampilkan detail project
+                document.getElementById("project-details-list").innerHTML = info.details.map(detail => `<li>${detail}</li>`).join("");
+
+                // Tampilkan gambar-gambar dalam Swiper Slider
+                const swiperWrapper = document.getElementById("swiper-wrapper");
+                swiperWrapper.innerHTML = info.images.map(image => `
+                    <div class="swiper-slide">
+                        <img src="${image}" alt="">
+                    </div>
+                `).join("");
+
+                // Inisialisasi Swiper setelah gambar dimuat
+                const swiper = new Swiper('.swiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                });
+            } else {
+                // Jika project tidak ditemukan
+                document.getElementById("project-info-list").innerHTML = "<li>Project not found.</li>";
+                document.getElementById("project-description").textContent = "The project you are looking for does not exist.";
+            }
+        });
+    </script><!-- End Portfolio Details Section -->
+
+  </main><!-- End main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
